@@ -42,6 +42,11 @@ class _AppMiscelaneousState extends State<AppMiscelaneous> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: HomeScreen(),
+      routes: {
+        '/': (context) => HomeScreen(),
+        '/intent_receiver': (context) => IntentReceiverScreen(),
+        '/settings': (context) => SettingsScreen(),
+      },
         
     );
   }
