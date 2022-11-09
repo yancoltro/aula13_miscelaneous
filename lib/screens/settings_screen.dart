@@ -30,61 +30,65 @@ class SettingsScreen extends StatelessWidget {
       ),
       body: Consumer<SharedPreferencesService>(
           builder: (context, sharedPreferences, child) {
-        return Column(
-          children: [
-            // Center(
-            //   child: Padding(
-            //     padding: const EdgeInsets.all(8.0),
-            //     child: TextField(
-            //       controller: txtPlayerAnimationValue,
-            //       decoration: InputDecoration(
-            //         label: Text(
-            //           "Animação nº: ",
-            //           style:
-            //               TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            //         ),
-            //       ),
-            //       keyboardType: TextInputType.number,
-            //       onChanged: (value) {
-            //         int? parsed = int.tryParse(value.toString());
-            //         if (parsed != null) {
-            //           sharedPreferences.setPlayerAnimation = parsed;
-            //           txtPlayerAnimationValue.text = parsed.toString();
-            //         }
-            //       },
-            //       onEditingComplete: () => FocusScope.of(context).unfocus(),
-            //     ),
-            //   ),
-            // ),
-            Text("Atual: ${sharedPreferences.getPlayerAnimation}"),
-            DropdownButton<String>(
-                isExpanded: true,
-                value: sharedPreferences.getPlayerAnimation,
-                items: animations
-                    .map((key, value) {
-                      return MapEntry(
-                          key,
-                          DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(key),
-                          ));
-                    })
-                    .values
-                    .toList(),
-                onChanged: (_value) {
-                  sharedPreferences.setPlayerAnimation = _value!;
-                }),
-          ],
+        return Padding(
+          padding: const EdgeInsets.all(15),
+          child: Column(
+            children: [
+              // Center(
+              //   child: Padding(
+              //     padding: const EdgeInsets.all(8.0),
+              //     child: TextField(
+              //       controller: txtPlayerAnimationValue,
+              //       decoration: InputDecoration(
+              //         label: Text(
+              //           "Animação nº: ",
+              //           style:
+              //               TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              //         ),
+              //       ),
+              //       keyboardType: TextInputType.number,
+              //       onChanged: (value) {
+              //         int? parsed = int.tryParse(value.toString());
+              //         if (parsed != null) {
+              //           sharedPreferences.setPlayerAnimation = parsed;
+              //           txtPlayerAnimationValue.text = parsed.toString();
+              //         }
+              //       },
+              //       onEditingComplete: () => FocusScope.of(context).unfocus(),
+              //     ),
+              //   ),
+              // ),
+              Text(
+                "Animação do Player",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              DropdownButton<String>(
+                  isExpanded: true,
+                  value: sharedPreferences.getPlayerAnimation,
+                  items: animations
+                      .map((key, value) {
+                        return MapEntry(
+                            key,
+                            DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(key),
+                            ));
+                      })
+                      .values
+                      .toList(),
+                  onChanged: (_value) {
+                    sharedPreferences.setPlayerAnimation = _value!;
+                  }),
+            ],
+          ),
         );
       }),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           Provider.of<SharedPreferencesService>(context, listen: false).save();
-
           ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text("Salvo cadastrado com sucesso")));
         },
-        tooltip: 'Increment',
         child: const Icon(Icons.save),
       ),
     );

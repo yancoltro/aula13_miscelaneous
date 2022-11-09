@@ -50,14 +50,23 @@ class _HomeScreenState extends State<HomeScreen> {
                       title: "Notificação Miscelaneous",
                       body: "Esta é uma notificação",
                       payload: "String")),
-              child: Text("Notificar"),
+              child: Text("Notificar agora"),
             ),
             ElevatedButton(
-              onPressed: () => Navigator.pushNamed(context, "/settings"),
-              child: const Text('Settings'),
+              onPressed: () => notificationService.scheduleNotification(
+                  CustomNotification(
+                      id: 1,
+                      title: "Notificação Miscelaneous",
+                      body: "Esta é uma notificação Agendada",
+                      payload: "String")),
+              child: Text("Agendar notificação"),
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, "/settings"),
+        child: const Icon(Icons.settings),
       ),
     );
   }

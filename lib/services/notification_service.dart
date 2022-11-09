@@ -43,7 +43,9 @@ class NotificationService {
         'miscelaneous_n', 'miscelaneous_c',
         importance: Importance.max,
         priority: Priority.max,
-        // sound: UriAndroidNotificationSound(""),
+        // sound: UriAndroidNotificationSound("file:///data/data/com.example.aula13_miscelaneous/files/uri_to_file/tomaladaca.mp3"),
+        // sound: UriAndroidNotificationSound("/data/data/com.example.aula13_miscelaneous/files/uri_to_file/tomaladaca.mp3"),
+        playSound: true,
         enableVibration: true);
 
     localNotificationsPlugin.show(
