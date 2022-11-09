@@ -14,7 +14,7 @@ class ImageComponent extends StatelessWidget {
       children: [
         Row(
           children: [
-            Image.file(file),
+            Image.file(file, width: 390),
           ],
         ),
         ShareComponent(file: file),

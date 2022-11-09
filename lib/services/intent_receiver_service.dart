@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:async';
 
 import 'package:aula13_miscelaneous/components/audio_component.dart';
@@ -34,8 +36,24 @@ class IntentReceiverService {
     // TODO
     // }
     else {
-      return CircularProgressIndicator();
+      return Center(
+        child: Column(
+          children: [
+          Text(
+            "Aguardando Intent...",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 25
+            ),
+          ),
+          Padding(padding: EdgeInsets.only(bottom: 45)),
+          CircularProgressIndicator(),
+          Container(
+            padding: EdgeInsets.all(45),
+            child: Divider(thickness: 3),
+          )
+        ]),
+      );
     }
-    return CircularProgressIndicator();
   }
 }

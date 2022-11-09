@@ -1,7 +1,9 @@
 // import 'package:features_3/screens/home_screen.dart';
 // import 'package:features_3/screens/intent_receiver_screen.dart';
 // import 'package:features_3/screens/settings_screen.dart';
+import 'package:aula13_miscelaneous/models/custom_notification_model.dart';
 import 'package:aula13_miscelaneous/services/intent_receiver_service.dart';
+import 'package:aula13_miscelaneous/services/notification_service.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,6 +20,7 @@ class AppMiscelaneous extends StatefulWidget {
 class _AppMiscelaneousState extends State<AppMiscelaneous> {
   late Widget itentWidget = Text("Carregando...");
   IntentReceiverService intentService = IntentReceiverService();
+  NotificationService notificationService = NotificationService();
 
   @override
   void initState() {
@@ -41,7 +44,16 @@ class _AppMiscelaneousState extends State<AppMiscelaneous> {
         appBar: AppBar(
           title: const Text('Intents'),
         ),
-        body: Center(child: itentWidget),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.only(bottom: 50),
+                child: itentWidget,
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
