@@ -39,6 +39,7 @@ dependencies:
   receive_intent: ^0.2.3
   uri_to_file: ^0.2.0
   audioplayers: ^1.1.1
+  share_plus: ^6.2.0
 
 dev_dependencies:
   flutter_test:

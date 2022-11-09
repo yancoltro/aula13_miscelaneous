@@ -1,24 +1,25 @@
 import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
+import 'package:aula13_miscelaneous/components/share_component.dart';
 import 'package:aula13_miscelaneous/models/intent_receiver_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 
-class Audio extends StatefulWidget {
+class AudioComponent extends StatefulWidget {
   final File file;
-  const Audio(this.file);
+  const AudioComponent(this.file);
 
   @override
-  State<Audio> createState() => _AudioState(file);
+  State<AudioComponent> createState() => _AudioComponentState(file);
 }
 
-class _AudioState extends State<Audio> {
+class _AudioComponentState extends State<AudioComponent> {
   late File file;
-  AudioPlayer audioPlayer = AudioPlayer();
-  _AudioState(this.file);
+  AudioPlayer audioComponentPlayer = AudioPlayer();
+  _AudioComponentState(this.file);
 
   @override
   void initState() {
@@ -27,7 +28,7 @@ class _AudioState extends State<Audio> {
   }
 
   void _initState() async {
-    await audioPlayer.setSourceUrl(file.path);
+    await audioComponentPlayer.setSourceUrl(file.path);
   }
 
   @override
@@ -41,40 +42,22 @@ class _AudioState extends State<Audio> {
           children: [
             ElevatedButtonTheme(
               data: ElevatedButtonThemeData(
-                  style: ElevatedButton.styleFrom(minimumSize: Size(175, 60))),
+                  style: ElevatedButton.styleFrom(minimumSize: Size(193, 60))),
               child: ButtonBar(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   ElevatedButton(
-                      onPressed: () => audioPlayer.pause(),
+                      onPressed: () => audioComponentPlayer.pause(),
                       child: Icon(Icons.stop)),
                   ElevatedButton(
-                      onPressed: () => audioPlayer.resume(),
+                      onPressed: () => audioComponentPlayer.resume(),
                       child: Icon(Icons.play_arrow)),
                 ],
               ),
             ),
           ],
         ),
-        // Row(
-        //   children: [
-        //     ElevatedButtonTheme(
-        //       data: ElevatedButtonThemeData(
-        //           style: ElevatedButton.styleFrom(minimumSize: Size(360, 60))),
-        //       child: ButtonBar(
-        //         mainAxisSize: MainAxisSize.max,
-        //         children: [
-        //           ElevatedButton(
-        //             onPressed: () => Share.shareXFiles([XFile(file.path)],
-        //                 text: "Compartilhando com nosso App",
-        //                 subject: "Subject"),
-        //             child: Icon(Icons.share),
-        //           ),
-        //         ],
-        //       ),
-        //     ),
-        //   ],
-        // ),
+        ShareComponent(file: file),
       ],
     );
   }
