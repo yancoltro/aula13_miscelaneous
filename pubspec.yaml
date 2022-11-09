@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   receive_intent: ^0.2.3
   uri_to_file: ^0.2.0
+  audioplayers: ^1.1.1
 
 dev_dependencies:
   flutter_test:

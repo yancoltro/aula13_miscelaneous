@@ -21,19 +21,13 @@ class IntentReceiverService {
     }
   }
 
-  Widget getVisualComponent(){
+  Widget getVisualComponent() {
     return Center();
   }
 
-  Widget _audio(){
-    
-  }
+  
 
-  Widget _image(){
-    
-  }
+  Widget _image() {}
 
-  Widget _video(){
-    
-  }
+  Widget _video() {}
 }
