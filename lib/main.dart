@@ -3,6 +3,7 @@
 // import 'package:features_3/screens/settings_screen.dart';
 import 'package:aula13_miscelaneous/models/custom_notification_model.dart';
 import 'package:aula13_miscelaneous/screens/home_screen.dart';
+import 'package:aula13_miscelaneous/screens/notification_screen.dart';
 import 'package:aula13_miscelaneous/screens/settings_screen.dart';
 import 'package:aula13_miscelaneous/services/intent_receiver_service.dart';
 import 'package:aula13_miscelaneous/services/notification_service.dart';
@@ -28,6 +29,7 @@ class AppMiscelaneous extends StatelessWidget {
         // '/': (context) => HomeScreen(),
         // '/intent_receiver': (context) => IntentReceiverScreen(),
         '/settings': (context) => SettingsScreen(),
+        '/notifications': (context) => NotificationsScreen(),
       },
     );
   }
