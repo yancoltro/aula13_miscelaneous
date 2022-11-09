@@ -1,0 +1,6 @@
+class IntentReceiverService{
+
+  checkForIntent(){
+    
+  }
+}
