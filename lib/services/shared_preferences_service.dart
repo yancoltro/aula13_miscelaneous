@@ -3,31 +3,29 @@ import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesService extends ChangeNotifier {
-  late Preferences preferences;
-  late SharedPreferences sharedPreferences;
+  late Preferences _preferences;
 
   SharedPreferencesService() {
-    preferences = new Preferences();
-    _init();
+    _preferences = new Preferences();
     _load();
   }
 
-  _init() async {
-    sharedPreferences = await SharedPreferences.getInstance();
-  }
-
   _load() async {
-    preferences.setPlayerAnimation =
+    final sharedPreferences = await SharedPreferences.getInstance();
+    _preferences.setPlayerAnimation =
         await sharedPreferences.getInt('playerAnimation') ?? 0;
   }
 
   save() async {
+    final sharedPreferences = await SharedPreferences.getInstance();
     await sharedPreferences.setInt(
-        'playerAnimation', preferences.getPlayerAnimation);
+        'playerAnimation', _preferences.getPlayerAnimation);
   }
 
-  void set playerAnimation(int value) {
-    preferences.setPlayerAnimation = value;
+  void set setPlayerAnimation(int value) {
+    _preferences.setPlayerAnimation = value;
     notifyListeners();
   }
+
+  int get getPlayerAnimation => _preferences.getPlayerAnimation;
 }

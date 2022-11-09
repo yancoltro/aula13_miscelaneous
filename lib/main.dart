@@ -3,51 +3,32 @@
 // import 'package:features_3/screens/settings_screen.dart';
 import 'package:aula13_miscelaneous/models/custom_notification_model.dart';
 import 'package:aula13_miscelaneous/screens/home_screen.dart';
+import 'package:aula13_miscelaneous/screens/settings_screen.dart';
 import 'package:aula13_miscelaneous/services/intent_receiver_service.dart';
 import 'package:aula13_miscelaneous/services/notification_service.dart';
+import 'package:aula13_miscelaneous/services/shared_preferences_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(AppMiscelaneous());
+  runApp(
+    MultiProvider(providers: [
+      ChangeNotifierProvider(create: (context) => SharedPreferencesService())
+    ], child: AppMiscelaneous()),
+  );
 }
 
-class AppMiscelaneous extends StatefulWidget {
-  const AppMiscelaneous({super.key});
-
-  @override
-  State<AppMiscelaneous> createState() => _AppMiscelaneousState();
-}
-
-class _AppMiscelaneousState extends State<AppMiscelaneous> {
-  late Widget itentWidget = Text("Carregando...");
-  IntentReceiverService intentService = IntentReceiverService();
-  NotificationService notificationService = NotificationService();
-
-  @override
-  void initState() {
-    _initState();
-    super.initState();
-  }
-
-  _initState() async {
-    if (!mounted) return;
-    await intentService.checkForIntent();
-    Widget _widget = await intentService.getVisualComponent();
-    setState(() {
-      itentWidget = _widget;
-    });
-  }
-
+class AppMiscelaneous extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "Miscelaneous",
       home: HomeScreen(),
       routes: {
-        '/': (context) => HomeScreen(),
-        '/intent_receiver': (context) => IntentReceiverScreen(),
+        // '/': (context) => HomeScreen(),
+        // '/intent_receiver': (context) => IntentReceiverScreen(),
         '/settings': (context) => SettingsScreen(),
       },
-        
     );
   }
 }

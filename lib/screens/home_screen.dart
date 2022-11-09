@@ -33,28 +33,32 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Intents'),
+      appBar: AppBar(
+        title: const Text('Intents'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.only(bottom: 50),
+              child: itentWidget,
+            ),
+            ElevatedButton(
+              onPressed: () => notificationService.showNotification(
+                  CustomNotification(
+                      id: 1,
+                      title: "Notificação Miscelaneous",
+                      body: "Esta é uma notificação",
+                      payload: "String")),
+              child: Text("Notificar"),
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.pushNamed(context, "/settings"),
+              child: const Text('Settings'),
+            ),
+          ],
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                padding: EdgeInsets.only(bottom: 50),
-                child: itentWidget,
-              ),
-              ElevatedButton(
-                onPressed: () => notificationService.showNotification(
-                    CustomNotification(
-                        id: 1,
-                        title: "Notificação Miscelaneous",
-                        body: "Esta é uma notificação",
-                        payload: "String")),
-                child: Text("Notificar"),
-              ),
-            ],
-          ),
-        ),
+      ),
     );
   }
 }
