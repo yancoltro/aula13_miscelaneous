@@ -25,7 +25,7 @@ class NotificationService {
   }
 
   _initializeNotifications() async {
-    const android = AndroidInitializationSettings('@mimap/ic_launcher');
+    const android = AndroidInitializationSettings('icon_app');
 
     await localNotificationsPlugin.initialize(
         const InitializationSettings(android: android),
@@ -43,6 +43,7 @@ class NotificationService {
         'miscelaneous_n', 'miscelaneous_c',
         importance: Importance.max,
         priority: Priority.max,
+        // sound: UriAndroidNotificationSound(""),
         enableVibration: true);
 
     localNotificationsPlugin.show(
@@ -59,7 +60,8 @@ class NotificationService {
         'miscelaneous_n', 'miscelaneous_c',
         importance: Importance.max,
         priority: Priority.max,
-        enableVibration: true);
+        enableVibration: true,
+        );
 
     localNotificationsPlugin.zonedSchedule(
         notification.id,

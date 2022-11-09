@@ -10,3 +10,5 @@ A new Flutter project.
  - SHARE
    - Adicionar minifyEnabled e shrinkResources como false em build.gradle (android.buildType.debug)
    - Ajustar compileSdkVersion
+ - NOTIFICATION
+  - Alterar o icone em android.app.src.main.res.mipmap-* (caso queira personalizar a notificação)

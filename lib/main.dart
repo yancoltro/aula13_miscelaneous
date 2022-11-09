@@ -2,6 +2,7 @@
 // import 'package:features_3/screens/intent_receiver_screen.dart';
 // import 'package:features_3/screens/settings_screen.dart';
 import 'package:aula13_miscelaneous/models/custom_notification_model.dart';
+import 'package:aula13_miscelaneous/screens/home_screen.dart';
 import 'package:aula13_miscelaneous/services/intent_receiver_service.dart';
 import 'package:aula13_miscelaneous/services/notification_service.dart';
 import 'package:flutter/material.dart';
@@ -40,21 +41,8 @@ class _AppMiscelaneousState extends State<AppMiscelaneous> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Intents'),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                padding: EdgeInsets.only(bottom: 50),
-                child: itentWidget,
-              )
-            ],
-          ),
-        ),
-      ),
+      home: HomeScreen(),
+        
     );
   }
 }
