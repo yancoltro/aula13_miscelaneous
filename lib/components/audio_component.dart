@@ -22,6 +22,7 @@ class _AudioState extends State<Audio> {
 
   @override
   void initState() {
+    _initState();
     super.initState();
   }
 

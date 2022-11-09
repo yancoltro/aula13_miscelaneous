@@ -27,7 +27,7 @@ class IntentReceiverModel {
     if (extra != null) {
       if (extra!["android.intent.extra.STREAM"] != null) {
         source = extra!["android.intent.extra.STREAM"];
-        File file = await toFile(source);
+        file = await toFile(source);
       }
     }
 
