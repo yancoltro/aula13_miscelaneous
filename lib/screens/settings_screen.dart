@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 class SettingsScreen extends StatelessWidget {
   final txtPlayerAnimationValue = TextEditingController();
+  final txtnotificationSecondsValue = TextEditingController();
 
   final Map<String, String> animations = {
     "Pepe Pepe": "https://media.tenor.com/SexsGMnqLn0AAAAi/pepe-pepe-song.gif",
@@ -79,6 +80,26 @@ class SettingsScreen extends StatelessWidget {
                   onChanged: (_value) {
                     sharedPreferences.setPlayerAnimation = _value!;
                   }),
+
+              Text(
+                "Intervalo da Notificação",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              TextField(
+                controller: txtnotificationSecondsValue,
+                keyboardType: TextInputType.number,
+                onChanged: (value) {
+                  int? parsed = int.tryParse(value.toString());
+                  if (parsed != null) {
+                    sharedPreferences.setNotificationSeconds = parsed;
+                    txtnotificationSecondsValue.text = parsed.toString();
+                  }
+                },
+                onEditingComplete: () => FocusScope.of(context).unfocus(),
+              ),
+               Text(
+                "Atual: ${sharedPreferences.getNotificationSeconds}"
+              ),
             ],
           ),
         );

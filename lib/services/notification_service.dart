@@ -56,14 +56,15 @@ class NotificationService {
         payload: notification.payload);
   }
 
-  scheduleNotification(CustomNotification notification) {
-    final date = DateTime.now().add(const Duration(seconds: 5));
+  scheduleNotification(CustomNotification notification, int seconds) {
+    final date = DateTime.now().add(Duration(seconds: seconds));
     androidNotificationDetails = const AndroidNotificationDetails(
-        'miscelaneous_n', 'miscelaneous_c',
-        importance: Importance.max,
-        priority: Priority.max,
-        enableVibration: true,
-        );
+      'miscelaneous_n',
+      'miscelaneous_c',
+      importance: Importance.max,
+      priority: Priority.max,
+      enableVibration: true,
+    );
 
     localNotificationsPlugin.zonedSchedule(
         notification.id,

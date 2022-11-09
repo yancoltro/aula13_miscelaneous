@@ -44,22 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
               child: itentWidget,
             ),
             ElevatedButton(
-              onPressed: () => notificationService.showNotification(
-                  CustomNotification(
-                      id: 1,
-                      title: "Notificação Miscelaneous",
-                      body: "Esta é uma notificação",
-                      payload: "String")),
+              onPressed: () => Navigator.pushNamed(context, "/notifications"),
               child: Text("Notificar agora"),
-            ),
-            ElevatedButton(
-              onPressed: () => notificationService.scheduleNotification(
-                  CustomNotification(
-                      id: 1,
-                      title: "Notificação Miscelaneous",
-                      body: "Esta é uma notificação Agendada",
-                      payload: "String")),
-              child: Text("Agendar notificação"),
             ),
           ],
         ),

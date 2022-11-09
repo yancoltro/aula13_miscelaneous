@@ -1,6 +1,4 @@
-// import 'package:features_3/screens/home_screen.dart';
-// import 'package:features_3/screens/intent_receiver_screen.dart';
-// import 'package:features_3/screens/settings_screen.dart';
+
 import 'package:aula13_miscelaneous/models/custom_notification_model.dart';
 import 'package:aula13_miscelaneous/screens/home_screen.dart';
 import 'package:aula13_miscelaneous/screens/notification_screen.dart';
@@ -26,8 +24,6 @@ class AppMiscelaneous extends StatelessWidget {
       title: "Miscelaneous",
       home: HomeScreen(),
       routes: {
-        // '/': (context) => HomeScreen(),
-        // '/intent_receiver': (context) => IntentReceiverScreen(),
         '/settings': (context) => SettingsScreen(),
         '/notifications': (context) => NotificationsScreen(),
       },
