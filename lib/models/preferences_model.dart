@@ -1,10 +1,10 @@
 class Preferences {
-  int playerAnimation = 0;
+  String playerAnimation = "https://media.tenor.com/SexsGMnqLn0AAAAi/pepe-pepe-song.gif";
 
   Preferences();
 
-  int get getPlayerAnimation => this.playerAnimation;
+  String get getPlayerAnimation => this.playerAnimation;
 
-  set setPlayerAnimation(int playerAnimation) =>
+  set setPlayerAnimation(String playerAnimation) =>
       this.playerAnimation = playerAnimation;
 }
