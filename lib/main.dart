@@ -1,10 +1,8 @@
 
-import 'package:aula13_miscelaneous/models/custom_notification_model.dart';
 import 'package:aula13_miscelaneous/screens/home_screen.dart';
 import 'package:aula13_miscelaneous/screens/notification_screen.dart';
 import 'package:aula13_miscelaneous/screens/settings_screen.dart';
-import 'package:aula13_miscelaneous/services/intent_receiver_service.dart';
-import 'package:aula13_miscelaneous/services/notification_service.dart';
+import 'package:aula13_miscelaneous/screens/url_launcher.dart';
 import 'package:aula13_miscelaneous/services/shared_preferences_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -26,6 +24,7 @@ class AppMiscelaneous extends StatelessWidget {
       routes: {
         '/settings': (context) => SettingsScreen(),
         '/notifications': (context) => NotificationsScreen(),
+        '/laucher': (context) => LauncherScreen(),
       },
     );
   }

@@ -12,3 +12,5 @@ A new Flutter project.
    - Ajustar compileSdkVersion
  - NOTIFICATION
   - Alterar o icone em android.app.src.main.res.mipmap-* (caso queira personalizar a notificação)
+ - URL LAUCHER
+  - ??

@@ -47,6 +47,10 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () => Navigator.pushNamed(context, "/notifications"),
               child: Text("Notificar agora"),
             ),
+            ElevatedButton(
+              onPressed: () => Navigator.pushNamed(context, "/laucher"),
+              child: Text("Lançar URL"),
+            ),
           ],
         ),
       ),
